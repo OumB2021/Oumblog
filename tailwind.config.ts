@@ -11,6 +11,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        softBg: "#f0f0f0",
+        softTextColor: "#626262",
       },
     },
   },
