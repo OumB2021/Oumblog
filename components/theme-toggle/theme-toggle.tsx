@@ -7,17 +7,17 @@ import { useState } from "react";
 function ThemeToggle() {
   const [theme, setTheme] = useState("light");
   return (
-    <button className="bg-red-400 p-2 rounded-md" onClick={() => {}}>
+    <button className="bg-zinc-300 p-[10px] rounded-md" onClick={() => {}}>
       {theme === "dark" ? (
         <Sun
-          className="text-gray-600 hover:text-gray-900"
-          size={24}
+          className="text-zinc-800 hover:text-black"
+          size={20}
           strokeWidth={1.5}
         />
       ) : (
         <Moon
-          className="text-gray-600 hover:text-gray-900"
-          size={24}
+          className="text-zinc-800 hover:text-black"
+          size={20}
           strokeWidth={1.5}
         />
       )}
