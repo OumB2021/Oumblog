@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 // Configure the Inter font
 const interFont = Inter({
@@ -24,13 +25,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${interFont.variable} antialiased`}>
-        <div className="min-h-screen bg-white text-black">
+        {/* <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        > */}
+        <div className="min-h-screen bg-gradient-to-tr from-gray-50 to-gray-100">
           <div className="wrapper">
             <Navbar />
             {children}
             <Footer />
           </div>
         </div>
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );

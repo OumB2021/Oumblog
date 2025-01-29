@@ -1,4 +1,4 @@
 function Menu() {
-  return <div className="bg-red-700">Menu</div>;
+  return <div className="">Menu</div>;
 }
 export default Menu;
