@@ -5,7 +5,7 @@ import HamburgerMenu from "../hamburger-menu";
 
 function Navbar() {
   return (
-    <div className="flex items-center justify-between py-[10px]">
+    <div className="flex items-center justify-between py-4 border-b">
       {/* LOGO */}
       <div className="flex flex-1">
         <Link
