@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import AuthLinks from "../auth-links/auth-links";
-import ThemeToggle from "../theme-toggle/theme-toggle";
 import HamburgerMenu from "../hamburger-menu";
 
 function Navbar() {
@@ -26,17 +25,15 @@ function Navbar() {
       </div>
 
       {/* SOCIAL */}
-      <div className="flex gap-1 md:gap-[20px] flex-1 justify-end items-center text-sm  text-zinc-700 hover:text-black ">
-        <Link href="/" className="hidden md:flex">
-          Home
-        </Link>
-        <Link href="/" className="hidden md:flex">
-          Contact
-        </Link>
-        <Link href="/" className="hidden md:flex">
-          About
-        </Link>
+      <div className="hidden md:flex gap-1 md:gap-[20px] flex-1 justify-end items-center text-sm  text-zinc-700 hover:text-black ">
+        <Link href="/">Home</Link>
+        <Link href="/">Contact</Link>
+        <Link href="/">About</Link>
         <AuthLinks />
+      </div>
+
+      {/* HAMBURGER MENU */}
+      <div className="flex md:hidden">
         <HamburgerMenu />
       </div>
     </div>

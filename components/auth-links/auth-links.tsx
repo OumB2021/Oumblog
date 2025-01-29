@@ -2,8 +2,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import HamburgerMenu from "../hamburger-menu";
+import { cn } from "@/lib/utils";
 
-function AuthLinks() {
+function AuthLinks({ className }: { className?: string }) {
   const [open, setOpen] = useState(true);
   const status = "notauthenticated";
   return (
@@ -11,16 +12,21 @@ function AuthLinks() {
       {status === "notauthenticated" ? (
         <Link
           href="/login"
-          className="bg-zinc-800 dark:bg-zinc-100 px-4 py-[10px] text-white dark:text-zinc-800 font-medium rounded-md"
+          className={cn(
+            "bg-zinc-800 dark:bg-zinc-100 px-4 py-[10px] text-white dark:text-zinc-800 font-medium rounded-md",
+            className
+          )}
         >
           Login
         </Link>
       ) : (
         <div className="flex items-center gap-[10px]">
           <Link href="/write">Write</Link>
-          <span className="g-zinc-800 dark:bg-zinc-100 px-4 py-2 text-white dark:text-zinc-800 font-medium rounded-md">
-            Logout
-          </span>
+          className=
+          {cn(
+            "bg-zinc-800 dark:bg-zinc-100 px-4 py-[10px] text-white dark:text-zinc-800 font-medium rounded-md",
+            className
+          )}
         </div>
       )}
     </>
