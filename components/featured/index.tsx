@@ -27,7 +27,7 @@ function Featured() {
         </div>
 
         {/* Image */}
-        <div className="flex-1 flex items-start flex-col gap-4 text-center md:text-left">
+        <div className=" justify-center flex-1 flex md:items-start items-center flex-col gap-4 text-center md:text-left">
           <h1 className="text-2xl md:text-4xl font-bold">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
           </h1>

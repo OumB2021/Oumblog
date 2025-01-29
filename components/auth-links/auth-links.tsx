@@ -13,7 +13,7 @@ function AuthLinks({ className }: { className?: string }) {
         <Link
           href="/login"
           className={cn(
-            "bg-zinc-800 dark:bg-zinc-100 px-4 py-[10px] text-white dark:text-zinc-800 font-medium rounded-md",
+            "bg-zinc-800 px-4 py-[10px] text-white  font-medium rounded-md",
             className
           )}
         >
@@ -24,7 +24,7 @@ function AuthLinks({ className }: { className?: string }) {
           <Link href="/write">Write</Link>
           className=
           {cn(
-            "bg-zinc-800 dark:bg-zinc-100 px-4 py-[10px] text-white dark:text-zinc-800 font-medium rounded-md",
+            "bg-zinc-800 px-4 py-[10px] text-white  font-medium rounded-md",
             className
           )}
         </div>
