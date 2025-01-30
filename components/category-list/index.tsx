@@ -7,10 +7,10 @@ function CategoryList() {
       <h1 className="text-3xl font-bold text-center md:text-left">
         Popular Categories
       </h1>
-      <div className="flex flex-wrap justify-between mt-10 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full justify-between gap-4 mt-10">
         <Link
           href="/blog?cat=style"
-          className="flex items-center gap-2 w-[15%] h-[80px] bg-red-100 rounded-md justify-center"
+          className="flex items-center gap-2 h-[80px] bg-red-100 rounded-md justify-center"
         >
           <Image
             src="/style.png"
@@ -24,7 +24,7 @@ function CategoryList() {
 
         <Link
           href="/blog?cat=style"
-          className="flex items-center gap-2 w-[15%] h-[80px] bg-yellow-100 rounded-md justify-center"
+          className="flex items-center gap-2  h-[80px] bg-yellow-100 rounded-md justify-center"
         >
           <Image
             src="/travel.png"
@@ -38,7 +38,7 @@ function CategoryList() {
 
         <Link
           href="/blog?cat=style"
-          className="flex items-center gap-2 w-[15%] h-[80px] bg-blue-100 rounded-md justify-center"
+          className="flex items-center gap-2  h-[80px] bg-blue-100 rounded-md justify-center"
         >
           <Image
             src="/culture.png"
@@ -52,7 +52,7 @@ function CategoryList() {
 
         <Link
           href="/blog?cat=style"
-          className="flex items-center gap-2 w-[15%] h-[80px] bg-purple-100 rounded-md justify-center"
+          className="flex items-center gap-2  h-[80px] bg-purple-100 rounded-md justify-center"
         >
           <Image
             src="/coding.png"
@@ -66,7 +66,7 @@ function CategoryList() {
 
         <Link
           href="/blog?cat=style"
-          className="flex items-center gap-2 w-[15%] h-[80px] bg-emerald-100 rounded-md justify-center"
+          className="flex items-center gap-2  h-[80px] bg-emerald-100 rounded-md justify-center"
         >
           <Image
             src="/food.png"
@@ -76,6 +76,20 @@ function CategoryList() {
             className="rounded-full object-cover h-8 w-8"
           />
           Food
+        </Link>
+
+        <Link
+          href="/blog?cat=style"
+          className="flex items-center gap-2  h-[80px] bg-orange-100 rounded-md justify-center"
+        >
+          <Image
+            src="/fashion.png"
+            alt=""
+            width={32}
+            height={32}
+            className="rounded-full object-cover h-8 w-8"
+          />
+          Fashion
         </Link>
       </div>
     </div>
