@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
-function TrendingCard() {
+function TrendingCard({ className }: { className?: string }) {
   return (
     <Link href="/" className="flex items-center gap-4 ">
       <div className="relative w-1/5 aspect-square ">
         <Image
-          src="/p1.jpeg"
+          src="/travel.jpg"
           alt=""
           fill
           className="rounded-full object-cover"

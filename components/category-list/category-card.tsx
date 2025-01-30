@@ -13,12 +13,12 @@ function CategoryCard({ color, title }: categoryCardProps) {
       href={`/blog?cat=${title}`}
       className={clsx(
         "flex items-center gap-2 h-[80px] rounded-md justify-center",
-        `bg-${color}-100`
+        `${color}`
       )}
     >
       <Image
         src={`/${title}.png`}
-        alt=""
+        alt="img"
         width={32}
         height={32}
         className="rounded-full object-cover h-8 w-8"

@@ -5,7 +5,7 @@ function SinglePost() {
   return (
     <div className="mb-[50px] flex gap-10 items-center mt-5">
       <div className="flex-1 h-[350px] relative">
-        <Image src="/p1.jpeg" alt="" fill className="rounded-md" />
+        <Image src="/car.jpg" alt="" fill className="rounded-md object-cover" />
       </div>
       <div className="flex-1 flex flex-col gap-5">
         <div className="flex items-center gap-4 text-sm">

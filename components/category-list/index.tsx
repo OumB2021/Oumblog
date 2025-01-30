@@ -4,27 +4,27 @@ import CategoryCard from "./category-card";
 
 const categories = [
   {
-    color: "yellow",
+    color: "bg-red-100",
     title: "style",
   },
   {
-    color: "yellow",
+    color: "bg-yellow-100",
     title: "Travel",
   },
   {
-    color: "blue",
+    color: "bg-blue-100",
     title: "Culture",
   },
   {
-    color: "purple",
+    color: "bg-purple-100",
     title: "Coding",
   },
   {
-    color: "emerald",
+    color: "bg-emerald-100",
     title: "Food",
   },
   {
-    color: "orange",
+    color: "bg-orange-100",
     title: "Fashion",
   },
 ];
