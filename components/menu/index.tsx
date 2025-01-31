@@ -1,7 +1,7 @@
 import EditorPick from "./editor-pick";
 import MenuCategories from "./menu-categories";
 import Trending from "./trending";
-import TrendingCard from "./trending-card";
+import TrendingCard from "./menu-card";
 
 function Menu() {
   return (

@@ -1,10 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 
-function EditorPickCard() {
+function MenuCard({ image }: { image?: boolean }) {
   return (
-    <Link href="/" className="flex items-center gap-4 ">
-      <div className="w-full flex flex-col gap-1">
+    <Link href="/" className="flex items-center gap-4">
+      {image && (
+        <div className="relative w-1/5 aspect-square ">
+          <Image
+            src="/travel.jpg"
+            alt=""
+            fill
+            className="rounded-full object-cover"
+          />
+        </div>
+      )}
+
+      <div className="w-4/5 flex flex-col gap-1">
         <span className="bg-red-400 rounded-xl size-fit px-3 py-[2px] text-sm font-medium text-white">
           Travel
         </span>
@@ -19,4 +30,4 @@ function EditorPickCard() {
     </Link>
   );
 }
-export default EditorPickCard;
+export default MenuCard;

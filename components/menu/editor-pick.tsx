@@ -1,4 +1,4 @@
-import EditorPickCard from "./editor-pick-card";
+import MenuCard from "./menu-card";
 
 function EditorPick() {
   return (
@@ -9,7 +9,7 @@ function EditorPick() {
       <h1 className="text-2xl font-bold">Editors pick</h1>
       <div className="mt-5 flex flex-col gap-[35px]">
         {Array.from({ length: 5 }).map((_, i) => (
-          <EditorPickCard key={i} />
+          <MenuCard key={i} image={true} />
         ))}
       </div>
     </div>
