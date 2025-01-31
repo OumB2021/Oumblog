@@ -8,7 +8,9 @@ function CardList() {
         Recent Posts
       </h1>
       <div className="">
-        <SinglePost />
+        {Array.from({ length: 3 }).map((post, index) => (
+          <SinglePost key={index} />
+        ))}
       </div>
 
       <Pagination />
