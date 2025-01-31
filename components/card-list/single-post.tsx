@@ -4,7 +4,7 @@ import Link from "next/link";
 function SinglePost() {
   return (
     <div className="mb-[50px] flex gap-10 items-center mt-5">
-      <div className="flex-1 h-[350px] relative">
+      <div className="hidden lg:flex flex-1 h-[350px] relative">
         <Image src="/car.jpg" alt="" fill className="rounded-md object-cover" />
       </div>
       <div className="flex-1 flex flex-col gap-5">

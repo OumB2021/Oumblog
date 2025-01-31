@@ -5,7 +5,7 @@ import TrendingCard from "./menu-card";
 
 function Menu() {
   return (
-    <div className="w-1/3">
+    <div className="hidden md:block w-1/3">
       <Trending />
       <MenuCategories />
       <EditorPick />
