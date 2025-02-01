@@ -7,7 +7,7 @@ function SinglePage() {
     <div>
       <div className="flex flex-col-reverse md:flex-row items-center gap-5 md:gap-10 mt-10">
         <div className="flex-1 flex flex-col items-center md:items-start gap-5 md:gap-14">
-          <h1 className="text-2xl md:text-6xl font-bold text-center md:text-left">
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold text-center md:text-left">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
           </h1>
           <div className="flex items-center gap-4">
@@ -38,14 +38,14 @@ function SinglePage() {
       </div>
       <div className="mt-[50px] flex gap-10">
         <div className="w-full md:w-2/3">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 text-sm md:text-base">
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               Incidunt, voluptate consectetur! Repellat dolores accusamus earum!
               In dolores voluptatum maxime! Velit, facilis? Itaque atque aut
               fugit doloremque veniam error dolores nemo?
             </p>
-            <h1 className="text-2xl font-bold">
+            <h1 className="text-lg md:text-2xl font-bold">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Veritatis, ipsum.
             </h1>

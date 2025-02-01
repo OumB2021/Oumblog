@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <div className="mt-[50px] flex flex-col md:flex-row gap-10 md:gap-0 justify-between items-center p-10">
+    <div className="mt-10 flex flex-col md:flex-row gap-10 md:gap-0 justify-between items-center p-10">
       <div className="flex-1 flex flex-col gap-3">
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="oumb blog" width={40} height={40} />
