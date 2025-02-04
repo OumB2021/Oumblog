@@ -9,7 +9,7 @@ import "quill/dist/quill.snow.css";
 function WritePage() {
   const editorRef = useRef<HTMLDivElement | null>(null); // Reference for the editor
   const [quill, setQuill] = useState<Quill | null>(null);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
     if (editorRef.current && !quill) {
@@ -21,35 +21,43 @@ function WritePage() {
   }, [quill]);
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Title"
-        className="placeholder:text-4xl p-4 text-4xl  focus-visible:ring-0"
-      />
-      <div>
-        <button>
-          <PlusCircle
-            className="text-muted-foreground hover:text-black"
-            strokeWidth={1.5}
-            size={30}
-          />
-        </button>
-        {open && (
-          <div>
-            <button>
-              <Image src="/image.png" alt="" width={16} height={16} />
-            </button>
-            <button>
-              <Image src="/external.png" alt="" width={16} height={16} />
-            </button>
-            <button>
-              <Image src="/video.png" alt="" width={16} height={16} />
-            </button>
-          </div>
-        )}
+    <div className="flex flex-col gap-4">
+      <div className="mt-10">
+        <h1 className="text-3xl font-bold text-center md:text-left">
+          Write a new blog
+        </h1>
       </div>
-      <div ref={editorRef} className="h-64" />
+      <div className="flex flex-col gap-4">
+        <input
+          type="text"
+          placeholder="Title"
+          className="placeholder:text-4xl placeholder:font-medium p-4 text-4xl font-bold bg-transparent focus:outline-none focus:ring-0 focus-visible:ring-0"
+        />
+
+        <div className="flex items-center gap-2">
+          <button>
+            <PlusCircle
+              className="text-muted-foreground hover:text-black"
+              strokeWidth={1.5}
+              size={30}
+            />
+          </button>
+          {open && (
+            <div className="flex items-center gap-4">
+              <button>
+                <Image src="/image.png" alt="" width={16} height={16} />
+              </button>
+              <button>
+                <Image src="/external.png" alt="" width={16} height={16} />
+              </button>
+              <button>
+                <Image src="/video.png" alt="" width={16} height={16} />
+              </button>
+            </div>
+          )}
+        </div>
+        <div ref={editorRef} className="h-64" />
+      </div>
     </div>
   );
 }
