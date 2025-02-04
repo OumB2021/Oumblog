@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 
 function AuthLinks({ className }: { className?: string }) {
   const [open, setOpen] = useState(true);
-  const status = "notauthenticated";
+  const status = "authenticated";
   return (
     <>
-      {status === "notauthenticated" ? (
+      {status === "authenticated" ? (
         <Link
           href="/login"
           className={cn(
@@ -21,12 +21,15 @@ function AuthLinks({ className }: { className?: string }) {
         </Link>
       ) : (
         <div className="flex items-center gap-[10px]">
-          <Link href="/write">Write</Link>
-          className=
-          {cn(
-            "bg-zinc-800 px-4 py-[10px] text-white  font-medium rounded-md",
-            className
-          )}
+          <Link
+            href="/write"
+            className={cn(
+              "bg-zinc-800 px-4 py-[10px] text-white  font-medium rounded-md",
+              className
+            )}
+          >
+            Write
+          </Link>
         </div>
       )}
     </>

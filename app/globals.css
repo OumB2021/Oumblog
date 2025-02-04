@@ -21,6 +21,9 @@ body {
   padding-right: 80px;
 }
 
+.ql-toolbar.ql-snow {
+  border-radius: 5px;
+}
 @media screen and (max-width: 1536px) {
   .wrapper {
     max-width: 1366px;

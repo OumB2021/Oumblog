@@ -31,7 +31,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         > */}
-        <div className="min-h-screen bg-gradient-to-tr from-gray-50 to-gray-100">
+        <div className="min-h-screen bg-gradient-to-tr from-zinc-50 to-zinc-100">
           <div className="wrapper">
             <Navbar />
             {children}
