@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ClerkProvider } from "@clerk/nextjs";
 
 // Configure the Inter font
 const interFont = Inter({
@@ -23,23 +24,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${interFont.variable} antialiased`}>
-        {/* <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        > */}
-        <div className="min-h-screen bg-gradient-to-tr from-zinc-50 to-zinc-100">
-          <div className="wrapper">
-            <Navbar />
-            {children}
-            <Footer />
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${interFont.variable} antialiased`}>
+          <div className="min-h-screen bg-gradient-to-tr from-zinc-50 to-zinc-100">
+            <div className="wrapper">
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
           </div>
-        </div>
-        {/* </ThemeProvider> */}
-      </body>
-    </html>
+          {/* </ThemeProvider> */}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
