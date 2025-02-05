@@ -7,7 +7,7 @@ function Featured() {
       <div className="flex flex-col items-center justify-center p-4 space-y-2 text-center">
         {/* TITLE */}
         <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold">
-          Welcome on my Blog
+          Welcome to my Blog
         </h1>
         <p className="text-base text-muted-foreground">
           A collection of experiences, reflections, and insights to inspire your
