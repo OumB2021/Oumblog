@@ -43,45 +43,25 @@ export async function POST(req: Request) {
       "svix-signature": svix_signature,
     }) as WebhookEvent;
   } catch (err) {
-    console.error("Error: Could not verify webhook:", err);
-    return new Response("Error: Verification error", {
+    console.error("Error verifying webhook:", err);
+    return new Response("Error occured", {
       status: 400,
     });
   }
 
-  const { id, first_name, last_name, image_url, email_addresses } =
-    payload.data;
+  const { id } = evt.data;
   const eventType = evt.type;
 
   if (eventType === "user.created") {
-    // check if user already exists
-    const foundUser = await prisma.user.findUnique({
-      where: { id },
-    });
-
-    if (foundUser) {
-      console.log("User already exists in database");
-      return new Response("User already exists", { status: 400 });
-    }
-
-    // Create new user in database
-    const createdUser = await prisma.user.create({
+    await prisma.user.create({
       data: {
         id: payload.data.id,
-        firstName: payload.data.first_name,
-        lastName: payload.data.last_name,
-        email: payload.email_addresses[0].email_address,
-        image: payload.data.image_url,
+        firstName: payload.data.firstName,
+        lastName: payload.data.lastName,
+        email: "email@example.com",
+        imageUrl: payload.data.image_url,
       },
     });
-
-    if (!createdUser) {
-      console.error("Error: Could not create user in database");
-      return new Response("Error: Failed to create user", { status: 500 });
-    } else {
-      console.log("User created successfully in database");
-      return new Response("User created", { status: 200 });
-    }
   }
 
   console.log(`Received webhook with ID ${id} and event type of ${eventType}`);

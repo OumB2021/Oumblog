@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "context/theme-context.js"
+    "context/theme-context.js",
+    "scripts/test-prisma.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
+import AuthProvider from "@/providers/auth-provider";
 
 // Configure the Inter font
 const interFont = Inter({
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <AuthProvider>
       <html lang="en">
         <body className={`${interFont.variable} antialiased`}>
           <div className="min-h-screen bg-gradient-to-tr from-zinc-50 to-zinc-100">
@@ -36,6 +36,6 @@ export default function RootLayout({
           </div>
         </body>
       </html>
-    </ClerkProvider>
+    </AuthProvider>
   );
 }
