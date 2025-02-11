@@ -42,8 +42,8 @@ const getData = async (): Promise<ICategory[]> => {
 };
 
 async function CategoryList() {
-  // Fetch categories from the server
   const fetchedCategories: ICategory[] = await getData();
+
   return (
     <div className="mt-20">
       <h1 className="text-3xl font-bold text-center md:text-left">

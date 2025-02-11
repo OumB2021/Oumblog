@@ -1,7 +1,21 @@
+import { IPost } from "@/models/Post";
 import Pagination from "../pagination";
 import SinglePost from "./single-post";
 
-function CardList() {
+// const getData = async (): Promise<IPost[]> => {
+//   const res = await fetch("http://localhost:3000/api/categories", {
+//     cache: "no-store",
+//   });
+
+//   if (!res.ok) {
+//     throw new Error("Something went wrong");
+//   }
+
+//   return res.json();
+// };
+
+async function CardList() {
+  // const data: IPost[] = await getData();
   return (
     <div className="w-full md:w-2/3 ">
       <h1 className="text-3xl font-bold text-center md:text-left">
