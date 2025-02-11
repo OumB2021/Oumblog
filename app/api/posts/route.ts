@@ -10,7 +10,8 @@ export async function GET(req: NextRequest) {
   const page = parseInt(searchParams.get("page") as string);
   try {
     await connectDB();
-    const posts = await Post.find({})
+    const posts = await Post.find()
+      .populate("category", "title")
       .limit(POST_PER_PAGE)
       .skip(POST_PER_PAGE * (page - 1));
 
