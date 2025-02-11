@@ -8,13 +8,24 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 export default function Page() {
   const router = useRouter();
-  const { data, status } = useSession();
+  const { status } = useSession();
 
   useEffect(() => {
     if (status === "authenticated") {
       fetch("/api/sync-user")
         .then((res) => res.json())
-        .then((data) => console.log("User sync response:", data));
+        .then((data) => {
+          console.log("User sync response:", data);
+
+          if (data.message === "User already exists") {
+            console.log("🔹 User already exists, no need to create.");
+          } else if (data.message === "User created") {
+            console.log("✅ New user created successfully.");
+          } else {
+            console.log("⚠️ Unexpected response:", data);
+          }
+        })
+        .catch((error) => console.error("❌ Error syncing user:", error));
 
       router.push("/");
     }

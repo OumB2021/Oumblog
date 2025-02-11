@@ -5,28 +5,43 @@ import Quill from "quill";
 import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
 import UploadButtons from "./_components/ upload-buttons";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 function WritePage() {
+  const { data, status } = useSession();
+  const router = useRouter();
+
   const editorRef = useRef<HTMLDivElement | null>(null); // Reference for the editor
   const [quill, setQuill] = useState<Quill | null>(null);
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    if (editorRef.current && !quill) {
-      const q = new Quill(editorRef.current, {
-        theme: "snow",
-        placeholder: "Write your blog content here...",
-      });
+    if (!editorRef.current || quill) return;
+    // Dynamically import Quill inside useEffect
+    import("quill").then((QuillModule) => {
+      const Quill = QuillModule.default;
 
-      q.on("text-change", () => {
-        setValue(q.root.innerHTML);
-      });
+      if (editorRef.current && !quill) {
+        const q = new Quill(editorRef.current, {
+          theme: "bubble",
+          placeholder: "Write your blog content here...",
+        });
 
-      setQuill(q);
-    }
+        q.on("text-change", () => {
+          setValue(q.root.innerHTML);
+        });
+
+        setQuill(q);
+      }
+    });
   }, [quill]);
 
-  console.log(value);
+  if (status === "unauthenticated") {
+    router.push("/sign-in");
+    return;
+  }
+
   return (
     <div className="flex flex-col gap-4 ">
       <div className="mt-10">

@@ -6,7 +6,6 @@ import { signoutAction } from "@/actions/auth-action";
 
 function AuthLinks({ className }: { className?: string }) {
   const { data, status } = useSession();
-  console.log("data", data?.user?.email);
   return (
     <>
       {status === "unauthenticated" ? (
