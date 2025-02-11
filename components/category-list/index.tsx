@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
+import { getCategories } from "@/data/get-categories";
 import CategoryCard from "./category-card";
+import { ICategory } from "@/models/Category";
 
 const categories = [
   {
@@ -28,15 +28,35 @@ const categories = [
     title: "Fashion",
   },
 ];
-function CategoryList() {
+
+const getData = async (): Promise<ICategory[]> => {
+  const res = await fetch("http://localhost:3000/api/categories", {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("Something went wrong");
+  }
+
+  return res.json();
+};
+
+async function CategoryList() {
+  // Fetch categories from the server
+  const fetchedCategories: ICategory[] = await getData();
   return (
     <div className="mt-20">
       <h1 className="text-3xl font-bold text-center md:text-left">
         Popular Categories
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full justify-between gap-4 mt-5">
-        {categories.map(({ color, title }) => (
-          <CategoryCard key={title} color={color} title={title} />
+        {fetchedCategories.map((category) => (
+          <CategoryCard
+            key={category.slug}
+            color={category.color}
+            title={category.title}
+            image={category.image}
+          />
         ))}
       </div>
     </div>

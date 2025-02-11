@@ -5,10 +5,11 @@ import clsx from "clsx";
 type categoryCardProps = {
   color: string;
   title: string;
-  image?: boolean;
+  image?: String;
 };
 
-function CategoryCard({ color, title, image = true }: categoryCardProps) {
+const getCategoryColor = (color: string) => `bg-${color}-100`;
+async function CategoryCard({ color, title, image }: categoryCardProps) {
   return (
     <Link
       href={`/blog?cat=${title}`}
@@ -16,12 +17,12 @@ function CategoryCard({ color, title, image = true }: categoryCardProps) {
         `flex items-center gap-2 ${
           image ? "h-[80px]" : "h-10"
         } rounded-md justify-center`,
-        `${color}`
+        `${getCategoryColor(color)}`
       )}
     >
       {image && (
         <Image
-          src={`/${title}.png`}
+          src={`${image}`}
           alt="img"
           width={32}
           height={32}
