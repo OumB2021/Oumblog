@@ -10,7 +10,7 @@ async function testMongoDB() {
     // Create a test user
     const testUser = await User.create({
       name: "Test User",
-      email: "testuser@examplew.com",
+      email: "teswfefwe@examplew.com",
       image: "https://example.com/test-image.jpg",
     });
 

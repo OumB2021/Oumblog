@@ -9,11 +9,14 @@ import { useEffect } from "react";
 export default function Page() {
   const router = useRouter();
   const { data, status } = useSession();
-  console.log(data);
 
   useEffect(() => {
     if (status === "authenticated") {
-      router.replace("/");
+      fetch("/api/sync-user")
+        .then((res) => res.json())
+        .then((data) => console.log("User sync response:", data));
+
+      router.push("/");
     }
   }, [status, router]);
 
