@@ -10,14 +10,12 @@ export default async function Home({
 }) {
   const page = parseInt((await searchParams).page as string) || 1;
 
-  // Log the page (for debugging)
-  console.log("page:", page);
   return (
     <div className="">
       <Featured />
       <CategoryList />
       <div className="flex gap-12 w-full mt-[50px]">
-        <CardList />
+        <CardList page={page} />
         <Menu />
       </div>
     </div>

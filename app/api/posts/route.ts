@@ -5,14 +5,15 @@ import { Post } from "@/models/Post";
 import { NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
+  const POST_PER_PAGE = 4;
+  const { searchParams } = new URL(req.url);
+  const page = parseInt(searchParams.get("page") as string);
   try {
-    // const session = await auth();
-    // if (!session || !session.user) {
-    //   return new Response("User not authenticated", { status: 401 });
-    // }
-
     await connectDB();
-    const posts = await Post.find({});
+    const posts = await Post.find({})
+      .limit(POST_PER_PAGE)
+      .skip(POST_PER_PAGE * (page - 1));
+
     if (posts) {
       return new Response(JSON.stringify(posts), { status: 200 });
     }
