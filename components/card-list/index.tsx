@@ -22,8 +22,8 @@ async function CardList({ page }: { page: number }) {
         Recent Posts
       </h1>
       <div className="">
-        {Array.from({ length: 3 }).map((post, index) => (
-          <SinglePost key={index} />
+        {data.map((post: IPost) => (
+          <SinglePost key={post.slug} post={post} />
         ))}
       </div>
 

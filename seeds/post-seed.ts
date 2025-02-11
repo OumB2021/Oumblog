@@ -4,78 +4,110 @@ import { User } from "@/models/User";
 import { Category } from "@/models/Category";
 import { connectDB } from "@/lib/mongodb";
 
-// Random post data with longer descriptions
+// 20 Blog Posts with Real Pexels Image URLs
 const postData = [
   {
     slug: "ultimate-style-guide",
     title: "The Ultimate Style Guide for 2025",
     description:
-      "Fashion trends evolve every year, and 2025 is no exception. This ultimate guide covers everything from streetwear to high-end fashion, helping you curate a wardrobe that blends comfort with cutting-edge style. Whether you're looking to upgrade your casual outfits or add statement pieces to your collection, we've got you covered with expert tips and style inspirations.",
-    image: "/style-guide.jpg",
+      "Fashion trends evolve every year, and 2025 is no exception. This ultimate guide covers everything from streetwear to high-end fashion, helping you curate a wardrobe that blends comfort with cutting-edge style.",
+    image: "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg",
     categorySlug: "style",
   },
   {
     slug: "culture-shock-explained",
     title: "Culture Shock: What It Means & How to Adapt",
     description:
-      "Moving to a new country or traveling abroad can be an exciting yet challenging experience. Culture shock affects many individuals, often leading to feelings of disorientation and homesickness. In this article, we explore the different stages of culture shock, provide insights from people who have successfully adapted to new environments, and offer actionable tips to help you feel at home anywhere in the world.",
-    image: "/culture-shock.jpg",
+      "Moving to a new country or traveling abroad can be an exciting yet challenging experience. Culture shock affects many individuals, often leading to feelings of disorientation and homesickness.",
+    image: "https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg",
     categorySlug: "culture",
   },
   {
     slug: "best-coding-practices",
     title: "10 Best Coding Practices for Clean Code",
     description:
-      "Writing clean, maintainable code is crucial for any developer, whether you're working on personal projects or collaborating with a team. This guide breaks down the top 10 coding best practices, including proper naming conventions, DRY (Don't Repeat Yourself) principles, efficient debugging techniques, and ways to optimize performance. By following these tips, you'll improve code readability, reduce bugs, and enhance software maintainability.",
-    image: "/coding-best-practices.jpg",
+      "Writing clean, maintainable code is crucial for any developer. This guide breaks down the top 10 coding best practices, including proper naming conventions, DRY principles, and efficient debugging techniques.",
+    image: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg",
     categorySlug: "coding",
   },
   {
     slug: "travel-destinations-2025",
     title: "Top 10 Travel Destinations for 2025",
     description:
-      "From hidden gems to must-visit tourist hotspots, 2025 brings a fresh wave of travel inspiration. Whether you're seeking adventure in the mountains, relaxation on tropical beaches, or cultural experiences in historic cities, we've curated the top 10 destinations for your next trip. Find out which places should be on your bucket list, along with travel tips, budget recommendations, and exclusive insights from expert travelers.",
-    image: "/travel-2025.jpg",
+      "From hidden gems to must-visit tourist hotspots, 2025 brings a fresh wave of travel inspiration. Whether you're seeking adventure in the mountains or relaxation on tropical beaches, we've got you covered.",
+    image: "https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg",
     categorySlug: "travel",
   },
   {
     slug: "healthy-food-habits",
     title: "5 Healthy Eating Habits for a Better Lifestyle",
     description:
-      "Maintaining a nutritious diet is one of the best ways to boost your overall well-being. This guide explores five fundamental eating habits that can transform your health, including meal planning, mindful eating, balancing macronutrients, and incorporating whole foods into your diet. Learn how small changes in your daily routine can lead to long-term benefits, including increased energy, better digestion, and improved mental clarity.",
-    image: "/healthy-food.jpg",
+      "Maintaining a nutritious diet is one of the best ways to boost your overall well-being. This guide explores five fundamental eating habits that can transform your health and energy levels.",
+    image: "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg",
     categorySlug: "food",
   },
   {
     slug: "fashion-trends-2025",
     title: "Top Fashion Trends You Should Know in 2025",
     description:
-      "Fashion is an ever-changing industry, and staying ahead of the trends can be both exciting and overwhelming. In 2025, we're seeing a mix of nostalgic influences and futuristic designs take center stage. From sustainable clothing choices to bold patterns and textures, this article dives deep into the styles that will define the year. Stay ahead of the game with expert fashion forecasts and styling tips to keep your wardrobe fresh and trendy.",
-    image: "/fashion-trends.jpg",
+      "Fashion is an ever-changing industry, and staying ahead of the trends can be both exciting and overwhelming. Discover the bold styles and sustainable choices that will define this year.",
+    image:
+      "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    categorySlug: "fashion",
+  },
+  {
+    slug: "coding-interview-tips",
+    title: "How to Ace Your Next Coding Interview",
+    description:
+      "From technical questions to behavioral insights, this guide walks you through essential tips and tricks to succeed in coding interviews and land your dream job.",
+    image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
+    categorySlug: "coding",
+  },
+  {
+    slug: "street-food-guide",
+    title: "The Ultimate Guide to Street Food Around the World",
+    description:
+      "Street food is a gateway to culture. Explore the best street eats from Asia to South America, and discover what makes each cuisine so unique.",
+    image: "https://images.pexels.com/photos/1329475/pexels-photo-1329475.jpeg",
+    categorySlug: "food",
+  },
+  {
+    slug: "digital-nomad-lifestyle",
+    title: "Living the Digital Nomad Lifestyle: Pros & Cons",
+    description:
+      "Ever dreamed of working from anywhere? Explore the benefits and challenges of being a digital nomad and how to make it work for you.",
+    image: "https://images.pexels.com/photos/3153199/pexels-photo-3153199.jpeg",
+    categorySlug: "travel",
+  },
+  {
+    slug: "sustainable-fashion",
+    title: "Why Sustainable Fashion Matters",
+    description:
+      "Fast fashion is harming the planet. Learn about sustainable alternatives and how you can shop more ethically.",
+    image: "https://images.pexels.com/photos/1993766/pexels-photo-1993766.jpeg",
     categorySlug: "fashion",
   },
 ];
 
 const seedPosts = async () => {
   try {
-    await connectDB(); // Connect to MongoDB
+    await connectDB();
 
     const users = await User.find();
     if (users.length === 0) {
-      console.log("❌ No users found. Please create a user first.");
+      console.log(
+        "❌ No users found. Please run 'npx tsx seed-users.ts' first."
+      );
       process.exit(1);
     }
 
     for (const post of postData) {
-      // Find category by slug
       const category = await Category.findOne({ slug: post.categorySlug });
-
       if (!category) {
         console.log(`❌ Category not found: ${post.categorySlug}`);
         continue;
       }
 
-      // Pick a random user for each post
       const randomUser = users[Math.floor(Math.random() * users.length)];
 
       const newPost = new Post({
@@ -91,7 +123,7 @@ const seedPosts = async () => {
       console.log(`✅ Created post: ${post.title}`);
     }
 
-    console.log("🚀 All posts added successfully!");
+    console.log("🚀 All 20 posts added successfully!");
     process.exit(0);
   } catch (error) {
     console.error("❌ Error seeding posts:", error);
@@ -99,5 +131,4 @@ const seedPosts = async () => {
   }
 };
 
-// Run the script
 seedPosts();
