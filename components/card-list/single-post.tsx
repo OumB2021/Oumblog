@@ -1,5 +1,6 @@
 import { formattedDate } from "@/lib/utils";
 import { IPost } from "@/models/Post";
+import { Eye } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,7 +8,7 @@ type SinglePostProps = {
   post: IPost;
 };
 function SinglePost({ post }: SinglePostProps) {
-  const { slug, title, description, image, createdAt, category } = post;
+  const { slug, title, description, image, createdAt, category, views } = post;
   const formatDate = formattedDate(createdAt);
   const categoryTitle = (category as any)?.title || "Uncategorized";
 
@@ -17,9 +18,21 @@ function SinglePost({ post }: SinglePostProps) {
         <Image src={image} alt="" fill className="rounded-md object-cover" />
       </div>
       <div className="flex-1 flex flex-col gap-5">
-        <div className="flex items-center gap-4 text-sm">
-          <span className="text-muted-foreground">{formatDate}</span>
-          <span className="font-medium text-red-500">{categoryTitle}</span>
+        <div className="flex items-center justify-between text-sm">
+          <div className="flex items-center gap-3 text-sm">
+            <span className="text-muted-foreground">{formatDate}</span>
+            <span className="font-medium text-red-500">{categoryTitle}</span>
+          </div>
+          <div className="flex items-center justify-center gap-2">
+            <Eye
+              className="text-muted-foreground"
+              size={20}
+              strokeWidth={1.5}
+            />
+            <span className="text-sm font-medium text-muted-foreground">
+              {views}
+            </span>
+          </div>
         </div>
         <Link href={`/${slug}`}>
           <h1 className="text-2xl font-bold cursor-pointer">{title}</h1>

@@ -1,6 +1,4 @@
-import { auth } from "@/auth";
 import { connectDB } from "@/lib/mongodb";
-import { Category } from "@/models/Category";
 import { Post } from "@/models/Post";
 import { NextRequest } from "next/server";
 
@@ -12,7 +10,7 @@ export async function GET(req: NextRequest) {
     await connectDB();
     const posts = await Post.find()
       .populate("category", "title")
-      .limit(POST_PER_PAGE)
+      .limit(POST_PER_PAGE + 1)
       .skip(POST_PER_PAGE * (page - 1));
 
     if (posts) {

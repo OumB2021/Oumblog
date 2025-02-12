@@ -7,7 +7,7 @@ function MenuCard({ image }: { image?: boolean }) {
       {image && (
         <div className="relative w-1/5 aspect-square ">
           <Image
-            src="/travel.jpg"
+            src="/travel.png"
             alt=""
             fill
             className="rounded-full object-cover"

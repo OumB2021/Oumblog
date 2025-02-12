@@ -1,33 +1,5 @@
-import { getCategories } from "@/data/get-categories";
 import CategoryCard from "./category-card";
 import { ICategory } from "@/models/Category";
-
-const categories = [
-  {
-    color: "bg-red-100",
-    title: "style",
-  },
-  {
-    color: "bg-yellow-100",
-    title: "Travel",
-  },
-  {
-    color: "bg-blue-100",
-    title: "Culture",
-  },
-  {
-    color: "bg-purple-100",
-    title: "Coding",
-  },
-  {
-    color: "bg-emerald-100",
-    title: "Food",
-  },
-  {
-    color: "bg-orange-100",
-    title: "Fashion",
-  },
-];
 
 const getData = async (): Promise<ICategory[]> => {
   const res = await fetch("http://localhost:3000/api/categories", {
