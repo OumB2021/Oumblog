@@ -8,12 +8,10 @@ import { NextRequest } from "next/server";
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const slug = searchParams.get("postSlug");
-  console.log("comment route", slug);
   if (!slug) {
     return new Response("Invalid slug", { status: 400 });
   }
   const decodedSlug = decodeURIComponent(slug.trim());
-  console.log("decoded slug", decodedSlug);
   try {
     await connectDB();
 
@@ -32,7 +30,6 @@ export async function GET(req: NextRequest) {
       "name image"
     );
 
-    console.log("route comments", comments);
     if (!comments) {
       return new Response("No comments found", { status: 404 });
     }
