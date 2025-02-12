@@ -34,7 +34,7 @@ function SinglePost({ post }: SinglePostProps) {
             </span>
           </div>
         </div>
-        <Link href={`/${slug}`}>
+        <Link href={`/post/${slug}`}>
           <h1 className="text-2xl font-bold cursor-pointer">{title}</h1>
         </Link>
         <p className="text-sm font-normal text-muted-foreground line-clamp-5">

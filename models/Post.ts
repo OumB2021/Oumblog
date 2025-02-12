@@ -13,7 +13,14 @@ export interface IPost extends Document {
 
 const PostSchema = new Schema<IPost>(
   {
-    slug: { type: String, required: true, unique: true },
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      lowercase: true,
+    },
+
     title: { type: String, required: true },
     description: { type: String, required: true },
     image: { type: String, required: true },

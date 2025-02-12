@@ -1,15 +1,9 @@
-import { auth } from "@/auth";
 import { connectDB } from "@/lib/mongodb";
 import { Category } from "@/models/Category";
 import { NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
   try {
-    // const session = await auth();
-    // if (!session || !session.user) {
-    //   return new Response("User not authenticated", { status: 401 });
-    // }
-    // console.log(session);
     await connectDB();
     const categories = await Category.find({});
     if (categories) {

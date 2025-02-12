@@ -7,6 +7,7 @@ type categoryCardProps = {
   title: string;
   image?: String;
 };
+
 const getCategoryColor = (color: string) => {
   const colorMap: Record<string, string> = {
     red: "bg-red-100",
@@ -29,7 +30,7 @@ async function CategoryCard({ color, title, image }: categoryCardProps) {
         `flex items-center gap-2 ${
           image ? "h-[80px]" : "h-10"
         } rounded-md justify-center `,
-        `${getCategoryColor(color)}`
+        categoryColor
       )}
     >
       {image && (

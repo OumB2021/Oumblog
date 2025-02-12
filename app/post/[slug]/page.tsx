@@ -1,8 +1,28 @@
 import CommentSection from "@/components/comments/comments";
 import Menu from "@/components/menu";
+import { IPost } from "@/models/Post";
 import Image from "next/image";
 
-function SinglePage() {
+const getData = async (slug: string): Promise<IPost> => {
+  const res = await fetch(
+    `http://localhost:3000/api/posts/${slug}
+    `,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Something went wrong");
+  }
+
+  return res.json();
+};
+
+async function SinglePage({ params }: { params: Promise<{ slug: string }> }) {
+  const slug = (await params).slug || "";
+  const data = await getData(slug);
+  console.log(data);
   return (
     <div>
       <div className="flex flex-col-reverse md:flex-row items-center gap-5 md:gap-10 mt-10">
