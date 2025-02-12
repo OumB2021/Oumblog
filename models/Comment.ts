@@ -1,8 +1,9 @@
 import mongoose, { Schema, Document } from "mongoose";
+import { IUser } from "./User";
 
 export interface IComment extends Document {
   content: string;
-  user: mongoose.Schema.Types.ObjectId;
+  user: IUser;
   post: mongoose.Schema.Types.ObjectId;
   createdAt: Date;
 }

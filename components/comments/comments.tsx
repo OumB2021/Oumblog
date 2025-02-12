@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import useSWR from "swr";
 import { Loader2 } from "lucide-react";
 import { IComment } from "@/models/Comment";
+import { createComment } from "@/actions/create-comment";
 
 const fetcher = async (url: string) => {
   const res = await fetch(url);
@@ -24,21 +25,25 @@ function CommentSection({ slug }: { slug: string }) {
     fetcher
   );
 
-  console.log("comments", data);
   return (
     <div className="flex flex-col mt-10">
       <h1 className="text-lg md:text-2xl font-bold">Comments</h1>
       {/* Comment input area */}
       {status === "authenticated" ? (
-        <div className="flex flex-col mt-4">
+        <form className="flex flex-col mt-4" action={createComment}>
+          <input type="hidden" name="slug" value={slug} />
           <Textarea
+            name="comment"
             placeholder="Write a comment..."
             className="w-full bg-white/90 focus-visible:ring-1 focus-visible:ring-ring h-[200px] placeholder:md:text-base placeholder:text-sm"
           />
-          <button className="bg-zinc-800 px-4 py-[10px] text-zinc-50 size-fit rounded-md mt-4 self-end">
+          <button
+            className="bg-zinc-800 px-4 py-[10px] text-zinc-50 size-fit rounded-md mt-4 self-end"
+            type="submit"
+          >
             Submit
           </button>
-        </div>
+        </form>
       ) : (
         <Link
           href="/login"
@@ -61,12 +66,12 @@ function CommentSection({ slug }: { slug: string }) {
             ))}
           </div>
         ) : (
-          // Render "No comments" when data is empty
-          <p className="text-muted-foreground">No comments yet.</p>
+          <div className="flex items-center justify-center">
+            <p className="text-muted-foreground text-sm">
+              No comments on this post
+            </p>
+          </div>
         )}
-        {/* {Array.from({ length: 4 }).map((post, index) => (
-          <SingleComment key={index} />
-        ))} */}
       </div>
     </div>
   );

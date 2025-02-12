@@ -1,5 +1,6 @@
 import CommentSection from "@/components/comments/comments";
 import Menu from "@/components/menu";
+import { formattedDate } from "@/lib/utils";
 import { IPost } from "@/models/Post";
 import Image from "next/image";
 
@@ -22,7 +23,7 @@ const getData = async (slug: string) => {
 async function SinglePage({ params }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug || "";
   const data = await getData(slug);
-
+  const date = formattedDate(data.createdAt);
   return (
     <div>
       <div className="flex flex-col-reverse md:flex-row items-center gap-5 md:gap-10 mt-10">
@@ -43,7 +44,7 @@ async function SinglePage({ params }: { params: Promise<{ slug: string }> }) {
               <span className="text-zinc-800 font-semibold text-base">
                 {data.user.name}
               </span>
-              <span>01.01.2025</span>
+              <span>{date}</span>
             </div>
           </div>
         </div>
