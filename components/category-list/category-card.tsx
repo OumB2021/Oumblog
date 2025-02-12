@@ -16,12 +16,12 @@ const getCategoryColor = (color: string) => {
     emerald: "bg-emerald-100",
     orange: "bg-orange-100",
   };
-  return colorMap[color] || "bg-gray-100"; // Default to gray if unknown
+  return colorMap[color] || "bg-gray-100";
 };
 
 async function CategoryCard({ color, title, image }: categoryCardProps) {
-  console.log(getCategoryColor(color));
   const categoryColor = getCategoryColor(color);
+
   return (
     <Link
       href={`/blog?cat=${title}`}

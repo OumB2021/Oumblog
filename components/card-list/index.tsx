@@ -3,9 +3,11 @@ import Pagination from "../pagination";
 import SinglePost from "./single-post";
 
 const POST_PER_PAGE = 4;
-const getData = async (page: number): Promise<IPost[]> => {
+const getData = async (page: number, cat: string): Promise<IPost[]> => {
   const res = await fetch(
-    `http://localhost:3000/api/posts?page=${page}&limit=${POST_PER_PAGE + 1}`,
+    `http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}&limit=${
+      POST_PER_PAGE + 1
+    }`,
     {
       cache: "no-store",
     }
@@ -19,7 +21,8 @@ const getData = async (page: number): Promise<IPost[]> => {
 };
 
 async function CardList({ page, cat }: { page: number; cat?: string }) {
-  const data: IPost[] = await getData(page);
+  const data: IPost[] = await getData(page, cat ?? "");
+
   const hasPrev = page > 1;
   const hasNext = data.length > POST_PER_PAGE;
 
