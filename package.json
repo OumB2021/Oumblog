@@ -10,7 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@auth/mongodb-adapter": "^3.7.4",
     "@jridgewell/gen-mapping": "^0.3.8",
     "@radix-ui/react-dialog": "^1.1.5",
     "class-variance-authority": "^0.7.1",
@@ -25,6 +24,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "svix": "^1.45.1",
+    "swr": "^2.3.2",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "util": "^0.12.5"

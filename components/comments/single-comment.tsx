@@ -1,12 +1,14 @@
+import { IComment } from "@/models/Comment";
 import Image from "next/image";
 
-function SingleComment() {
+function SingleComment({ item }: { item: IComment }) {
+  const { user, content } = item;
   return (
     <div className="flex flex-col gap-2 bg-white p-3 rounded-md shadow-sm">
       <div className="flex items-center gap-4 ">
         <div className="w-[50px] h-[50px] relative">
           <Image
-            src="/p1.jpg"
+            src={user.image}
             alt=""
             fill
             className="rounded-full object-fill"
@@ -14,17 +16,12 @@ function SingleComment() {
         </div>
         <div className="flex flex-col gap-1 text-sm text-muted-foreground">
           <span className="text-zinc-800 font-semibold text-base">
-            John Doe
+            {user.name}
           </span>
           <span>01.01.2025</span>
         </div>
       </div>
-      <p className="text-sm md:text-base text-zinc-600">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores enim
-        vero doloribus cupiditate consequatur hic atque quae architecto
-        reprehenderit aliquam animi sapiente fugiat, porro ratione fugit quos
-        sint nobis aut?
-      </p>
+      <p className="text-sm md:text-base text-zinc-600">{content}</p>
     </div>
   );
 }

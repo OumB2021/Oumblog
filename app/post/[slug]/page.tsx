@@ -60,28 +60,9 @@ async function SinglePage({ params }: { params: Promise<{ slug: string }> }) {
         <div className="w-full md:w-2/3">
           <div className="flex flex-col gap-4 text-sm md:text-base">
             <p>{data.description}</p>
-            <h1 className="text-lg md:text-2xl font-bold">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Veritatis, ipsum.
-            </h1>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Incidunt, voluptate consectetur! Repellat dolores accusamus earum!
-              In dolores voluptatum maxime! Velit, facilis? Itaque atque aut
-              fugit doloremque veniam error dolores nemo?
-            </p>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Incidunt, voluptate consectetur! Repellat dolores accusamus earum!
-              In dolores voluptatum maxime! Velit, facilis? Itaque atque aut
-              fugit doloremque veniam error dolores nemo? Lorem ipsum dolor sit
-              amet consectetur adipisicing elit. Natus a id tenetur, facilis
-              maiores, quasi quo cumque voluptates nesciunt et ad reiciendis
-              ipsa deserunt deleniti, delectus totam aperiam sequi accusamus.
-            </p>
           </div>
           <div>
-            <CommentSection />
+            <CommentSection slug={slug} />
           </div>
         </div>
         <Menu />
