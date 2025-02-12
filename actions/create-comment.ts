@@ -45,7 +45,7 @@ export const createComment = async (formData: FormData) => {
 
   if (newComment) {
     console.log("Comment created successfully");
-    revalidatePath("/post/[slug]");
+    revalidatePath(`/post/${slug}`);
   } else {
     throw new Error("Failed to create comment");
   }

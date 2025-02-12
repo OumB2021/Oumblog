@@ -22,7 +22,8 @@ function CommentSection({ slug }: { slug: string }) {
   const { status } = useSession();
   const { data, isLoading } = useSWR(
     `http://localhost:3000/api/comments?postSlug=${slug}`,
-    fetcher
+    fetcher,
+    { refreshInterval: 3000 }
   );
 
   return (
@@ -60,8 +61,8 @@ function CommentSection({ slug }: { slug: string }) {
             <Loader2 className="animate-spin text-muted-foreground" />
           </div>
         ) : data.length > 0 ? (
-          <div>
-            {data.map((item: IComment) => (
+          <div className="flex flex-col gap-3">
+            {[...data].reverse().map((item: IComment) => (
               <SingleComment key={item.content} item={item} />
             ))}
           </div>

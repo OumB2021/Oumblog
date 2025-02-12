@@ -23,7 +23,7 @@ function SingleComment({ item }: { item: IComment }) {
           <span>{date}</span>
         </div>
       </div>
-      <p className="text-sm md:text-base text-zinc-600">{content}</p>
+      <p className="text-sm md:text-base text-zinc-600 mt-2">{content}</p>
     </div>
   );
 }
