@@ -18,7 +18,7 @@ const getData = async (page: number): Promise<IPost[]> => {
   return res.json();
 };
 
-async function CardList({ page }: { page: number }) {
+async function CardList({ page, cat }: { page: number; cat?: string }) {
   const data: IPost[] = await getData(page);
   const hasPrev = page > 1;
   const hasNext = data.length > POST_PER_PAGE;
