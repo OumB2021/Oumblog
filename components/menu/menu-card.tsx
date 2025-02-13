@@ -59,7 +59,7 @@ function MenuCard({ image, post }: MenuCardProps) {
             categoryColor
           )}
         >
-          {category?.title}
+          {title}
         </span>
         <h3 className="line-clamp-2 font-semibold text-zinc-600">
           {post.title}

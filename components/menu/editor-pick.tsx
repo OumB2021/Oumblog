@@ -1,4 +1,3 @@
-import { getTrendingPosts } from "@/data/trending-post";
 import MenuCard from "./menu-card";
 import { IPost } from "@/models/Post";
 import { getTopPicked } from "@/data/random-post";
