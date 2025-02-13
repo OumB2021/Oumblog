@@ -2,7 +2,9 @@
 
 import { auth } from "@/auth";
 import { connectDB } from "@/lib/mongodb";
+import { Category } from "@/models/Category";
 import { Post } from "@/models/Post";
+import { User } from "@/models/User";
 import { revalidatePath } from "next/cache";
 
 export const createPost = async (formData: FormData) => {
@@ -13,6 +15,7 @@ export const createPost = async (formData: FormData) => {
 
   const title = formData.get("title") as string;
   const category = formData.get("category") as string;
+  const fileUrl = formData.get("fileurl") as string;
   const content = formData.get("content") as string;
 
   if (!title || !content) {
@@ -21,14 +24,24 @@ export const createPost = async (formData: FormData) => {
 
   await connectDB();
 
+  const foundCategory = await Category.findOne({ slug: category });
+  if (!foundCategory) {
+    throw new Error("Invalid category");
+  }
+
+  const foundUser = await User.findOne({ email: session.user.email });
+  if (!foundUser) {
+    throw new Error("User not found");
+  }
+
   const newPost = await Post.create({
     slug: title.toLowerCase().replace(/ /g, "-"),
     title,
     description: content,
-    image: "",
+    image: fileUrl,
     views: 0,
-    category: "some-category-id",
-    user: session.user.email,
+    category: foundCategory._id,
+    user: foundUser._id,
   });
 
   console.log("✅ Post created:", newPost.title);

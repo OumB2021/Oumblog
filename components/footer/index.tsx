@@ -9,7 +9,7 @@ async function Footer() {
   // }
   return (
     <div className="mt-10 flex flex-col md:flex-row gap-10 md:gap-0 justify-between items-center p-10">
-      <div className="flex-1 flex flex-col gap-3">
+      <div className="flex-1 flex flex-col gap-4">
         <div className="flex items-center gap-2 rounded-full">
           <Image
             src={session?.user?.image || "/user.png"}
@@ -26,10 +26,12 @@ async function Footer() {
           </Link>
         </div>
         <p className="text-sm text-muted-foreground">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ut
-          temporibus natus est voluptates. Non officia placeat iure ipsam,
-          officiis, cum commodi alias rem similique, itaque impedit minima
-          numquam earum.
+          Welcome to <strong>Oumblog</strong>, your ultimate destination for
+          insightful articles, expert tips, and in-depth explorations of topics
+          that matter. Whether you&apos;re passionate about fashion trends,
+          cultural insights, travel adventures, coding best practices, or the
+          latest in food and lifestyle, our blog offers a diverse collection of
+          engaging and informative content.
         </p>
 
         <div className="flex gap-[10px]">

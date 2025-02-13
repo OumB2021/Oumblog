@@ -1,6 +1,10 @@
+import { Post } from "@/models/Post";
 import Image from "next/image";
+import Link from "next/link";
 
-function Featured() {
+async function Featured() {
+  const featuredPost = await Post.find().sort({ views: -1 }).limit(1);
+
   return (
     <div className="mt-8">
       {/* TITLE */}
@@ -19,7 +23,7 @@ function Featured() {
         {/* Image */}
         <div className="relative h-96 flex-1 ">
           <Image
-            src="/p1.jpg"
+            src={featuredPost[0].image}
             alt=""
             fill
             className="rounded-md object-cover"
@@ -27,20 +31,19 @@ function Featured() {
         </div>
 
         {/* Image */}
-        <div className=" justify-center flex-1 flex md:items-start items-center flex-col gap-4 text-center md:text-left">
+        <div className=" justify-center flex-1 flex md:items-start items-center flex-col gap-10 text-center md:text-left">
           <h1 className="text-2xl md:text-4xl font-bold">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            {featuredPost[0].title}
           </h1>
           <p className="text-muted-foreground ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-            quidem deleniti fugit doloribus perspiciatis reprehenderit quam,
-            officia sapiente cupiditate doloremque. Illo quasi reiciendis illum
-            vero earum voluptatum eos praesentium nisi.
+            {featuredPost[0].description}
           </p>
 
-          <button className="rounded-md bg-zinc-800 px-4 py-[10px] text-white">
-            Read More
-          </button>
+          <Link href={`/post/${featuredPost[0].slug}`}>
+            <button className="rounded-md bg-zinc-800 px-4 py-[10px] text-white">
+              Read More
+            </button>
+          </Link>
         </div>
       </div>
     </div>

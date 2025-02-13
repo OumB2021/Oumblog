@@ -4,11 +4,11 @@ import { ImageIcon } from "lucide-react";
 import { useRef, useState } from "react";
 import { useEdgeStore } from "@/lib/edgestore"; // Assuming this is your EdgeStore import
 
-function UploadButtons({
-  setFile,
-}: {
+type props = {
   setFile: React.Dispatch<React.SetStateAction<File | null>>;
-}) {
+  setFileUrl: React.Dispatch<React.SetStateAction<string>>;
+};
+function UploadButtons({ setFile, setFileUrl }: props) {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [isUploading, setIsUploading] = useState(false);
@@ -38,6 +38,7 @@ function UploadButtons({
         },
       });
 
+      setFileUrl(res.url);
       console.log("Upload Complete:", res);
     } catch (error) {
       console.error("Upload Error:", error);
