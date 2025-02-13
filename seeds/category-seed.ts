@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import { Category } from "@/models/Category";
 import { connectDB } from "@/lib/mongodb";
 import { categoryData } from "@/constants/category";
@@ -9,6 +8,9 @@ const seedCategories = async () => {
   try {
     await connectDB(); // Connect to MongoDB
 
+    if (!Category) {
+      throw new Error("Category model is not registered");
+    }
     // Check if categories already exist
     const existingCategories = await Category.countDocuments();
     if (existingCategories > 0) {

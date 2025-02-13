@@ -1,15 +1,10 @@
 import mongoose from "mongoose";
 
-// dotenv.config();
 export const connectDB = async () => {
-  const connectionUrl = process.env.MONGODB_URI;
-
-  if (!connectionUrl) {
-    throw new Error("Missing MONGODB_URI environment variable");
-  }
-
   try {
-    await mongoose.connect(`${connectionUrl}`);
+    await mongoose.connect(
+      `mongodb+srv://baarryoumar:jkjkjk94@cluster0.ztty5.mongodb.net/blog?retryWrites=true&w=majority&appName=Cluster0`
+    );
     console.log("✅ Connected to MongoDB with Mongoose");
   } catch (error) {
     console.error("❌ MongoDB connection error:", error);
