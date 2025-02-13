@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 
 // dotenv.config();
 export const connectDB = async () => {
-  const connectionUrl =
-    "mongodb+srv://baarryoumar:jkjkjk94@cluster0.ztty5.mongodb.net/blog?retryWrites=true&w=majority&appName=Cluster0";
+  const connectionUrl = process.env.MONGODB_URI;
 
   if (!connectionUrl) {
     throw new Error("Missing MONGODB_URI environment variable");

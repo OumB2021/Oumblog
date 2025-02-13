@@ -27,7 +27,8 @@ export async function GET(req: NextRequest) {
     const posts = await Post.find(query)
       .populate("category", "title")
       .limit(POST_PER_PAGE + 1)
-      .skip(POST_PER_PAGE * (page - 1));
+      .skip(POST_PER_PAGE * (page - 1))
+      .sort({ createdAt: -1 });
 
     if (posts) {
       return new Response(JSON.stringify(posts), { status: 200 });
