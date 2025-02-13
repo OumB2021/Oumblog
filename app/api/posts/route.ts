@@ -11,7 +11,9 @@ export async function GET(req: NextRequest) {
 
   try {
     await connectDB();
-
+    if (!Category) {
+      throw new Error("Category is not registered");
+    }
     // Check if category
     const query: { category?: string } = {};
     if (catSlug) {
