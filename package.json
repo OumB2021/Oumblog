@@ -10,6 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@edgestore/react": "^0.2.2",
+    "@edgestore/server": "^0.2.2",
     "@jridgewell/gen-mapping": "^0.3.8",
     "@radix-ui/react-dialog": "^1.1.5",
     "@radix-ui/react-select": "^2.1.6",
@@ -28,7 +30,8 @@
     "swr": "^2.3.2",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
-    "util": "^0.12.5"
+    "util": "^0.12.5",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

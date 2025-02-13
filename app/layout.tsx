@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { ClerkProvider } from "@clerk/nextjs";
 import AuthProvider from "@/providers/auth-provider";
+import { EdgeStoreProvider } from "@/lib/edgestore";
 
 // Configure the Inter font
 const interFont = Inter({
@@ -27,13 +27,15 @@ export default function RootLayout({
     <AuthProvider>
       <html lang="en">
         <body className={`${interFont.variable} antialiased`}>
-          <div className="min-h-screen bg-gradient-to-tr from-zinc-50 to-zinc-100">
-            <div className="wrapper">
-              <Navbar />
-              {children}
-              <Footer />
+          <EdgeStoreProvider>
+            <div className="min-h-screen bg-gradient-to-tr from-zinc-50 to-zinc-100">
+              <div className="wrapper">
+                <Navbar />
+                {children}
+                <Footer />
+              </div>
             </div>
-          </div>
+          </EdgeStoreProvider>
         </body>
       </html>
     </AuthProvider>
