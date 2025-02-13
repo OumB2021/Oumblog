@@ -2,7 +2,7 @@
 
 import { auth } from "@/auth";
 import { connectDB } from "@/lib/mongodb";
-import { Category } from "@/models/Category";
+import Category from "@/models/Category";
 import { Post } from "@/models/Post";
 import { User } from "@/models/User";
 import { revalidatePath } from "next/cache";

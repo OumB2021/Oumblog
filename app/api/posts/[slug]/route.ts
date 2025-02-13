@@ -1,5 +1,5 @@
 import { connectDB } from "@/lib/mongodb";
-import { Category } from "@/models/Category";
+import Category from "@/models/Category";
 import { Post } from "@/models/Post";
 import { User } from "@/models/User";
 import { NextRequest } from "next/server";
