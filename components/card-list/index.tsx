@@ -4,8 +4,9 @@ import SinglePost from "./single-post";
 
 const POST_PER_PAGE = 4;
 const getData = async (page: number, cat: string): Promise<IPost[]> => {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const res = await fetch(
-    `http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}&limit=${
+    `${baseUrl}/api/posts?page=${page}&cat=${cat || ""}&limit=${
       POST_PER_PAGE + 1
     }`,
     {

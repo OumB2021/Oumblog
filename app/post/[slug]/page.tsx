@@ -4,13 +4,10 @@ import { formattedDate } from "@/lib/utils";
 import Image from "next/image";
 
 const getData = async (slug: string) => {
-  const res = await fetch(
-    `http://localhost:3000/api/posts/${slug}
-    `,
-    {
-      cache: "no-store",
-    }
-  );
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const res = await fetch(`${baseUrl}/api/posts/${slug}`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error("Something went wrong");

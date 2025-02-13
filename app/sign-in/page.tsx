@@ -12,7 +12,8 @@ export default function Page() {
 
   useEffect(() => {
     if (status === "authenticated") {
-      fetch("/api/sync-user")
+      const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+      fetch(`${baseUrl}/api/sync-user`)
         .then((res) => res.json())
         .then((data) => {
           console.log("User sync response:", data);

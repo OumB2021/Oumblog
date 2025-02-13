@@ -18,9 +18,10 @@ const fetcher = async (url: string) => {
   return data;
 };
 function CommentSection({ slug }: { slug: string }) {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const { status } = useSession();
   const { data, isLoading } = useSWR(
-    `http://localhost:3000/api/comments?postSlug=${slug}`,
+    `${baseUrl}/api/comments?postSlug=${slug}`,
     fetcher,
     { refreshInterval: 3000 }
   );

@@ -2,7 +2,8 @@ import CategoryCard from "./category-card";
 import { ICategory } from "@/models/Category";
 
 const getData = async (): Promise<ICategory[]> => {
-  const res = await fetch("http://localhost:3000/api/categories", {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const res = await fetch(`${baseUrl}/api/categories`, {
     cache: "no-store",
   });
 
