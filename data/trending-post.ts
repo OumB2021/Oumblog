@@ -1,10 +1,12 @@
 import { connectDB } from "@/lib/mongodb";
 import { IPost, Post } from "@/models/Post";
-import { IUser } from "@/models/User";
+import { IUser, User } from "@/models/User";
 
 export async function getTrendingPosts() {
   await connectDB();
-
+  if (!User) {
+    throw new Error("User is not registered");
+  }
   const trendingPosts = await Post.find()
     .sort({ views: -1 })
     .limit(5)

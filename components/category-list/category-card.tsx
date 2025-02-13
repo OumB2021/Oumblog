@@ -5,7 +5,7 @@ import clsx from "clsx";
 type categoryCardProps = {
   color: string;
   title: string;
-  image?: String;
+  image?: string;
 };
 
 const getCategoryColor = (color: string) => {

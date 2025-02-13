@@ -1,4 +1,5 @@
 import { formattedDate } from "@/lib/utils";
+import { ICategory } from "@/models/Category";
 import { IPost } from "@/models/Post";
 import { Eye } from "lucide-react";
 import Image from "next/image";
@@ -10,7 +11,7 @@ type SinglePostProps = {
 function SinglePost({ post }: SinglePostProps) {
   const { slug, title, description, image, createdAt, category, views } = post;
   const formatDate = formattedDate(createdAt);
-  const categoryTitle = (category as any)?.title || "Uncategorized";
+  const categoryTitle = (category as ICategory)?.title || "Uncategorized";
 
   return (
     <div className="mb-[50px] flex gap-10 items-center mt-5">

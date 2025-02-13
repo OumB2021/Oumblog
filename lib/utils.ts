@@ -10,5 +10,5 @@ export function formattedDate(date: Date): string {
     year: "numeric",
     month: "short",
     day: "numeric",
-  }).format();
+  }).format(new Date(date)); // ✅ Pass the date argument here
 }

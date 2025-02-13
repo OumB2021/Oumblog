@@ -1,7 +1,6 @@
 import CommentSection from "@/components/comments/comments";
 import Menu from "@/components/menu";
 import { formattedDate } from "@/lib/utils";
-import { IPost } from "@/models/Post";
 import Image from "next/image";
 
 const getData = async (slug: string) => {

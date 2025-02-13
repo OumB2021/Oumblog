@@ -27,8 +27,6 @@ function Navbar() {
       {/* SOCIAL */}
       <div className="hidden md:flex gap-1 md:gap-[20px] flex-1 justify-end items-center text-sm  text-zinc-700 hover:text-black ">
         <Link href="/">Home</Link>
-        <Link href="/">Contact</Link>
-        <Link href="/">About</Link>
         <AuthLinks />
       </div>
 

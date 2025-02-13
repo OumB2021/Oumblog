@@ -9,8 +9,8 @@ import { useState } from "react";
 
 const links = [
   { title: "Home", href: "/" },
-  { title: "Contact", href: "/contact" },
-  { title: "About", href: "/about" },
+  { title: "Contact", href: "/" },
+  { title: "About", href: "/" },
 ];
 function HamburgerMenu() {
   const [open, setOpen] = useState(false);

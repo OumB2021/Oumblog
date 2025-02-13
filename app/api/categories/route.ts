@@ -1,8 +1,7 @@
 import { connectDB } from "@/lib/mongodb";
 import { Category } from "@/models/Category";
-import { NextRequest } from "next/server";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   try {
     await connectDB();
     const categories = await Category.find({});

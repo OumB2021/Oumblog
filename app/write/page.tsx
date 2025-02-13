@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import UploadButtons from "./_components/ upload-buttons";
 import { Loader2 } from "lucide-react";
 import { createPost } from "@/actions/create-post";
-import { ICategory } from "@/models/Category";
 import { SelectCategory } from "./_components/select-categories";
 import Image from "next/image";
 
@@ -23,6 +22,8 @@ function WritePage() {
   const [file, setFile] = useState<File | null>(null);
   const [fileUrl, setFileUrl] = useState("");
   const [title, setTitle] = useState("");
+  console.log("Selected File:", file);
+
   useEffect(() => {
     if (!editorRef.current || quill) return;
 
@@ -48,16 +49,6 @@ function WritePage() {
     });
   }, [quill]);
 
-  console.log(
-    "title " +
-      title +
-      "\ncategory " +
-      category +
-      "\nurl " +
-      fileUrl +
-      "\ncontent " +
-      value
-  );
   const handleSubmit = async (formData: FormData) => {
     await createPost(formData);
     router.push("/"); // Redirect after post creation
@@ -116,9 +107,7 @@ function WritePage() {
         </div>
         <button
           type="submit"
-          onChange={(e) => {
-            e.currentTarget;
-          }}
+          onChange={(e) => e.currentTarget}
           disabled={!value.trim()}
           className="bg-zinc-800 px-4 py-[10px] text-white size-fit font-medium rounded-md disabled:bg-zinc-400 disabled:cursor-not-allowed transition-all"
         >

@@ -1,4 +1,3 @@
-import { auth } from "@/auth";
 import { connectDB } from "@/lib/mongodb";
 import { Category } from "@/models/Category";
 import { Post } from "@/models/Post";
@@ -14,13 +13,11 @@ export async function GET(req: NextRequest) {
     await connectDB();
 
     // Check if category
-    let query: any = {};
+    const query: { category?: string } = {};
     if (catSlug) {
       const category = await Category.findOne({ title: catSlug });
-      console.log("category: " + category);
       if (category) {
         query.category = category._id;
-        console.log("query cat", query.category);
       } else {
         return new Response("Category not found", { status: 404 });
       }

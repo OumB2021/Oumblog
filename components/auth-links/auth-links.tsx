@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 import { signoutAction } from "@/actions/auth-action";
 
 function AuthLinks({ className }: { className?: string }) {
-  const { data, status } = useSession();
+  const { status } = useSession();
   return (
     <>
       {status === "unauthenticated" ? (
