@@ -1,5 +1,5 @@
 import { connectDB } from "@/lib/mongodb";
-import { Category } from "@/models/Category";
+import Category from "@/models/Category";
 
 export async function GET() {
   try {

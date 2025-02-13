@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { Post } from "@/models/Post";
 import { User } from "@/models/User";
-import { Category } from "@/models/Category";
+import Category from "@/models/Category";
 import { connectDB } from "@/lib/mongodb";
 import { postData } from "@/constants/posts";
 

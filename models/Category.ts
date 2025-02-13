@@ -22,6 +22,9 @@ const CategorySchema = new Schema<ICategory>(
   }
 );
 
-export const Category =
+// Check if the model has already been registered
+const Category =
   mongoose.models.Category ||
   mongoose.model<ICategory>("Category", CategorySchema);
+
+export default Category;

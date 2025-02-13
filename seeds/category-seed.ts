@@ -1,4 +1,4 @@
-import { Category } from "@/models/Category";
+import Category from "@/models/Category";
 import { connectDB } from "@/lib/mongodb";
 import { categoryData } from "@/constants/category";
 
@@ -11,6 +11,8 @@ const seedCategories = async () => {
     if (!Category) {
       throw new Error("Category model is not registered");
     }
+
+    await Category.deleteMany({});
     // Check if categories already exist
     const existingCategories = await Category.countDocuments();
     if (existingCategories > 0) {
