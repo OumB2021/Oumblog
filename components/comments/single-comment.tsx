@@ -6,7 +6,7 @@ function SingleComment({ item }: { item: IComment }) {
   const { user, content } = item;
   const date = formattedDate(item.createdAt);
   return (
-    <div className="flex flex-col gap-2 bg-white p-3 rounded-md shadow-sm justify-center">
+    <div className="flex flex-col gap-2 bg-white p-3 rounded-md shadow-sm">
       <div className="flex items-center gap-4 ">
         <div className="w-[40px] h-[40px] relative">
           <Image
@@ -16,14 +16,14 @@ function SingleComment({ item }: { item: IComment }) {
             className="rounded-full object-fill"
           />
         </div>
-        <div className="flex flex-col  text-sm text-muted-foreground">
+        <div className="flex flex-col text-sm text-muted-foreground">
           <span className="text-zinc-800 font-semibold text-base">
             {user.name}
           </span>
           <span>{date}</span>
         </div>
       </div>
-      <p className="text-sm md:text-base text-zinc-600 mt-2">{content}</p>
+      <p className="text-sm md:text-base text-zinc-600">{content}</p>
     </div>
   );
 }

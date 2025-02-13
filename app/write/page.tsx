@@ -2,68 +2,100 @@
 
 import { useEffect, useRef, useState } from "react";
 import Quill from "quill";
-import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
-import UploadButtons from "./_components/ upload-buttons";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import UploadButtons from "./_components/ upload-buttons";
+import { Loader2 } from "lucide-react";
+import { createPost } from "@/actions/create-post";
+import { ICategory } from "@/models/Category";
+import { SelectCategory } from "./_components/select-categories";
 
 function WritePage() {
-  const { data, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
-  const editorRef = useRef<HTMLDivElement | null>(null); // Reference for the editor
+  const editorRef = useRef<HTMLDivElement | null>(null);
   const [quill, setQuill] = useState<Quill | null>(null);
   const [value, setValue] = useState("");
+  const [category, setCategory] = useState("");
+  const [file, setFile] = useState<File | null>(null);
 
   useEffect(() => {
     if (!editorRef.current || quill) return;
-    // Dynamically import Quill inside useEffect
+
     import("quill").then((QuillModule) => {
       const Quill = QuillModule.default;
+      const q = new Quill(editorRef.current!, {
+        theme: "bubble",
+        placeholder: "Write your blog content here...",
+      });
 
-      if (editorRef.current && !quill) {
-        const q = new Quill(editorRef.current, {
-          theme: "bubble",
-          placeholder: "Write your blog content here...",
-        });
+      q.on("text-change", () => {
+        setValue(q.root.innerHTML.trim());
+      });
 
-        q.on("text-change", () => {
-          setValue(q.root.innerHTML);
-        });
+      setQuill(q);
 
-        setQuill(q);
-      }
+      setTimeout(() => {
+        q.root.setAttribute(
+          "data-placeholder",
+          "Write your blog content here..."
+        );
+      }, 100);
     });
   }, [quill]);
 
-  if (status === "unauthenticated") {
-    router.push("/sign-in");
-    return;
-  }
+  const handleSubmit = async (formData: FormData) => {
+    await createPost(formData);
+    router.push("/"); // Redirect after post creation
+  };
+
+  // Redirect if unauthenticated
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/sign-in");
+    }
+  }, [status, router]);
+
+  console.log(category);
+  if (status === "unauthenticated") return null;
 
   return (
-    <div className="flex flex-col gap-4 ">
+    <div className="flex flex-col gap-4">
       <div className="mt-10">
-        <h1 className="text-3xl font-bold text-center md:text-left ">
+        <h1 className="text-3xl font-bold text-center md:text-left">
           Write a new blog
         </h1>
       </div>
-      <div className="flex flex-col gap-4">
+      <form className="flex flex-col gap-4" action={handleSubmit}>
         <input
           type="text"
           placeholder="Title"
           className="md:placeholder:text-3xl placeholder:text-2xl placeholder:font-medium py-4 text-3xl w-full font-bold bg-transparent focus:outline-none focus:ring-0 focus-visible:ring-0"
         />
 
-        <UploadButtons />
-
-        <div ref={editorRef} className="h-64" />
-
-        <button className="bg-zinc-800 px-4 py-[10px] text-white size-fit font-medium rounded-md ">
+        <div className="flex flex-col  gap-2">
+          <SelectCategory setCategory={setCategory} />
+          <input type="hidden" name="category" value={category} />
+          <UploadButtons setFile={setFile} />
+        </div>
+        <div className="h-64 relative">
+          {status === "loading" && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Loader2 className="animate-spin text-muted-foreground" />
+            </div>
+          )}
+          <div ref={editorRef} className={`h-64 `} />
+        </div>
+        <button
+          type="submit"
+          disabled={!value.trim()}
+          className="bg-zinc-800 px-4 py-[10px] text-white size-fit font-medium rounded-md disabled:bg-zinc-400 disabled:cursor-not-allowed transition-all"
+        >
           Publish Blog
         </button>
-      </div>
+      </form>
     </div>
   );
 }
