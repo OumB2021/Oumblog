@@ -11,7 +11,7 @@ export async function getTrendingPosts() {
     .sort({ views: -1 })
     .limit(5)
     .populate({ path: "category", select: "title color" })
-    .populate({ path: "user", select: "name" });
+    .populate({ path: "user", select: "name image" });
 
   return trendingPosts as (Omit<IPost, "user"> & { user: IUser })[];
 }

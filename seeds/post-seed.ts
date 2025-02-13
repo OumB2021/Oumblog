@@ -17,6 +17,7 @@ const seedPosts = async () => {
       process.exit(1);
     }
 
+    await Post.deleteMany({});
     for (const post of postData) {
       const category = await Category.findOne({ slug: post.categorySlug });
       if (!category) {
@@ -31,6 +32,7 @@ const seedPosts = async () => {
         title: post.title,
         description: post.description,
         image: post.image,
+        views: post.views,
         category: category._id,
         user: randomUser._id,
       });

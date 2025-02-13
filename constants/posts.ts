@@ -6,6 +6,7 @@ export const postData = [
       "Fashion trends evolve every year, and 2025 is no exception. This ultimate guide covers everything from streetwear to high-end fashion, helping you curate a wardrobe that blends comfort with cutting-edge style.",
     image: "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg",
     categorySlug: "style",
+    views: 32,
   },
   {
     slug: "culture-shock-explained",
@@ -14,6 +15,7 @@ export const postData = [
       "Moving to a new country or traveling abroad can be an exciting yet challenging experience. Culture shock affects many individuals, often leading to feelings of disorientation and homesickness.",
     image: "https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg",
     categorySlug: "culture",
+    views: 33,
   },
   {
     slug: "best-coding-practices",
@@ -22,6 +24,7 @@ export const postData = [
       "Writing clean, maintainable code is crucial for any developer. This guide breaks down the top 10 coding best practices, including proper naming conventions, DRY principles, and efficient debugging techniques.",
     image: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg",
     categorySlug: "coding",
+    views: 28,
   },
   {
     slug: "travel-destinations-2025",
@@ -38,6 +41,7 @@ export const postData = [
       "Maintaining a nutritious diet is one of the best ways to boost your overall well-being. This guide explores five fundamental eating habits that can transform your health and energy levels.",
     image: "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg",
     categorySlug: "food",
+    views: 29,
   },
   {
     slug: "fashion-trends-2025",
@@ -47,6 +51,7 @@ export const postData = [
     image:
       "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     categorySlug: "fashion",
+    views: 31,
   },
   {
     slug: "coding-interview-tips",
@@ -55,6 +60,7 @@ export const postData = [
       "From technical questions to behavioral insights, this guide walks you through essential tips and tricks to succeed in coding interviews and land your dream job.",
     image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
     categorySlug: "coding",
+    views: 30,
   },
   {
     slug: "street-food-guide",
@@ -63,6 +69,7 @@ export const postData = [
       "Street food is a gateway to culture. Explore the best street eats from Asia to South America, and discover what makes each cuisine so unique.",
     image: "https://images.pexels.com/photos/1329475/pexels-photo-1329475.jpeg",
     categorySlug: "food",
+    views: 27,
   },
   {
     slug: "digital-nomad-lifestyle",
@@ -71,6 +78,7 @@ export const postData = [
       "Ever dreamed of working from anywhere? Explore the benefits and challenges of being a digital nomad and how to make it work for you.",
     image: "https://images.pexels.com/photos/3153199/pexels-photo-3153199.jpeg",
     categorySlug: "travel",
+    views: 26,
   },
   {
     slug: "sustainable-fashion",
@@ -79,13 +87,15 @@ export const postData = [
       "Fast fashion is harming the planet. Learn about sustainable alternatives and how you can shop more ethically.",
     image: "https://images.pexels.com/photos/1993766/pexels-photo-1993766.jpeg",
     categorySlug: "fashion",
+    views: 76,
   },
   {
     slug: "digital-fashion-revolution",
     title: "The Digital Fashion Revolution",
     description:
       "Explore how digital fashion is transforming the industry with virtual runways, NFTs, and AI-driven designs.",
-    image: "https://images.pexels.com/photos/5706288/pexels-photo-5706288.jpeg",
+    image:
+      "https://images.pexels.com/photos/27873872/pexels-photo-27873872/free-photo-of-a-man-walking-down-a-sidewalk-with-a-white-shirt-and-white-pants.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     views: 312,
     categorySlug: "fashion",
   },
@@ -93,7 +103,7 @@ export const postData = [
     slug: "hidden-gems-in-japan",
     title: "Hidden Travel Gems in Japan",
     description:
-      "Discover the best-kept secrets of Japan, from untouched rural villages to breathtaking hidden temples.",
+      "Japan is a land of true contrast; rich with centuries-old tradition, the country has ancient, ornate temples and picturesque old towns standing alongside the dazzling lights and technical innovation of ultra-modern cities, like Tokyo and Osaka. Japan's unique blend of ancient and modern is one of the main draws for visitors, who love to explore the modernity of Japanese city life while also experiencing countless natural wonders and learning about the country's rich history.",
     image:
       "https://images.pexels.com/photos/1440476/pexels-photo-1440476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     views: 765,
@@ -122,7 +132,8 @@ export const postData = [
     title: "The Latest Style Trends for 2025",
     description:
       "A look into the future of fashion, from bold patterns to eco-conscious clothing and AI-designed wardrobes.",
-    image: "https://images.pexels.com/photos/6765875/pexels-photo-6765875.jpeg",
+    image:
+      "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     views: 198,
     categorySlug: "style",
   },
@@ -177,7 +188,7 @@ export const postData = [
     description:
       "Travel in style without breaking the bank. Learn smart tips to book luxury experiences for less.",
     image: "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg",
-    views: 879,
+    views: 212,
     categorySlug: "travel",
   },
   {
@@ -185,7 +196,8 @@ export const postData = [
     title: "Streetwear: The New High Fashion",
     description:
       "Streetwear is no longer just casual—it’s shaping the high fashion industry with bold designs.",
-    image: "https://images.pexels.com/photos/967149/pexels-photo-967149.jpeg",
+    image:
+      "https://images.pexels.com/photos/9456570/pexels-photo-9456570.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     views: 332,
     categorySlug: "fashion",
   },
@@ -212,7 +224,8 @@ export const postData = [
     title: "Best Breakfasts From Around the World",
     description:
       "Start your day right! Experience the best breakfasts from different cultures worldwide.",
-    image: "https://images.pexels.com/photos/2067475/pexels-photo-2067475.jpeg",
+    image:
+      "https://images.pexels.com/photos/2113556/pexels-photo-2113556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     views: 381,
     categorySlug: "food",
   },
@@ -239,8 +252,9 @@ export const postData = [
     title: "The Best Vintage Fashion Trends",
     description:
       "Retro styles are making a comeback! Explore the top vintage trends taking over fashion today.",
-    image: "https://images.pexels.com/photos/2179356/pexels-photo-2179356.jpeg",
-    views: 590,
+    image:
+      "https://images.pexels.com/photos/30703628/pexels-photo-30703628/free-photo-of-vintage-car-on-leaf-lined-street-in-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    views: 123,
     categorySlug: "fashion",
   },
   {
@@ -248,8 +262,9 @@ export const postData = [
     title: "The Ultimate Foodie Bucket List",
     description:
       "A food lover's dream: Discover the best dishes and culinary experiences from around the world.",
-    image: "https://images.pexels.com/photos/6752433/pexels-photo-6752433.jpeg",
-    views: 872,
+    image:
+      "https://images.pexels.com/photos/2116091/pexels-photo-2116091.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    views: 16,
     categorySlug: "food",
   },
 ];

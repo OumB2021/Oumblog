@@ -4,7 +4,6 @@ import { getTrendingPosts } from "@/data/trending-post";
 
 async function Trending() {
   const trendingPosts = await getTrendingPosts();
-
   if (!trendingPosts || trendingPosts.length === 0) {
     return (
       <p className="text-muted-foreground text-sm">No trending posts found.</p>

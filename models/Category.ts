@@ -6,6 +6,7 @@ export interface ICategory extends Document {
   title: string;
   color: string;
   image: string;
+  posts: IPost[];
 }
 
 const CategorySchema = new Schema<ICategory>(
@@ -14,6 +15,7 @@ const CategorySchema = new Schema<ICategory>(
     title: { type: String, required: true },
     color: { type: String, required: true },
     image: { type: String },
+    posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
   },
   {
     timestamps: true,
