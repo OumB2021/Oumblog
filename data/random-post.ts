@@ -23,8 +23,8 @@ export async function getTopPicked() {
         as: "user",
       },
     },
-    { $unwind: "$category" },
-    { $unwind: "$user" },
+    { $unwind: "$category" }, // 🔹 Ensure category is an object, not an array
+    { $unwind: "$user" }, // 🔹 Ensure user is an object, not an array
     {
       $project: {
         slug: 1,
@@ -32,13 +32,17 @@ export async function getTopPicked() {
         description: 1,
         image: 1,
         views: 1,
-        "category.title": 1,
+        createdAt: 1,
+        "category.title": 1, // 🔹 Include category title
+        "category.color": 1, // 🔹 Include category color
         "user.name": 1,
         "user.image": 1,
-        createdAt: 1,
       },
     },
   ]);
 
-  return trendingPosts as (Omit<IPost, "user"> & { user: IUser })[];
+  return trendingPosts as (Omit<IPost, "user"> & {
+    user: IUser;
+    category: { title: string; color: string };
+  })[];
 }

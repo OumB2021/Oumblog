@@ -1,10 +1,22 @@
-import { formattedDate } from "@/lib/utils";
+import { cn, formattedDate } from "@/lib/utils";
 import { ICategory } from "@/models/Category";
 import { IPost } from "@/models/Post";
 import { IUser } from "@/models/User";
 import { Loader2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+const getCategoryColor = (color: string) => {
+  const colorMap: Record<string, string> = {
+    red: "bg-red-100",
+    yellow: "bg-yellow-100",
+    blue: "bg-blue-100",
+    purple: "bg-purple-100",
+    emerald: "bg-emerald-100",
+    orange: "bg-orange-100",
+  };
+  return colorMap[color] || "bg-gray-100";
+};
 
 type MenuCardProps = {
   image?: boolean;
@@ -23,8 +35,10 @@ function MenuCard({ image, post }: MenuCardProps) {
   const user = post.user as IUser;
   const category = post.category as ICategory;
   const { name } = user;
-  const { title } = category;
+  const { title, color } = category;
   const date = formattedDate(post.createdAt);
+  const categoryColor = getCategoryColor(color);
+
   return (
     <Link href={`/post/${post.slug}`} className="flex items-center gap-4">
       {image && post.image && (
@@ -39,7 +53,12 @@ function MenuCard({ image, post }: MenuCardProps) {
       )}
 
       <div className="w-4/5 flex flex-col gap-1">
-        <span className="bg-red-400 rounded-xl size-fit px-3 py-[2px] text-sm font-medium text-white">
+        <span
+          className={cn(
+            "rounded-xl size-fit px-3 py-[2px] text-sm font-medium text-black",
+            categoryColor
+          )}
+        >
           {title}
         </span>
         <h3 className="line-clamp-2 font-semibold text-zinc-600">
