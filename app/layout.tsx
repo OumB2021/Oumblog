@@ -8,9 +8,7 @@ import { EdgeStoreProvider } from "@/lib/edgestore";
 
 // Configure the Inter font
 const interFont = Inter({
-  subsets: ["latin"], // Specify subsets for better optimization
-  variable: "--font-inter", // Define a CSS variable for the font
-  display: "swap", // Use "swap" to improve performance
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -26,7 +24,7 @@ export default function RootLayout({
   return (
     <AuthProvider>
       <html lang="en">
-        <body className={`${interFont.variable} antialiased`}>
+        <body className={`${interFont} antialiased`}>
           <EdgeStoreProvider>
             <div className="min-h-screen bg-gradient-to-tr from-zinc-50 to-zinc-100">
               <div className="wrapper">

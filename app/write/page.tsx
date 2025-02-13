@@ -11,6 +11,7 @@ import { createPost } from "@/actions/create-post";
 import { SelectCategory } from "./_components/select-categories";
 import Image from "next/image";
 
+export const dynamic = "force-dynamic";
 function WritePage() {
   const { status } = useSession();
   const router = useRouter();
