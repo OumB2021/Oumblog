@@ -4,9 +4,7 @@ import Link from "next/link";
 
 async function Footer() {
   const session = await auth();
-  // if (!session || !session.user) {
-  //   return null;
-  // }
+
   return (
     <div className="mt-10 flex flex-col md:flex-row gap-10 md:gap-0 justify-between items-center p-10">
       <div className="flex-1 flex flex-col gap-4">

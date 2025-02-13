@@ -1,5 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 import { IUser } from "./User";
+import { ICategory } from "./Category";
 
 export interface IPost extends Document {
   slug: string;
@@ -7,7 +8,7 @@ export interface IPost extends Document {
   description: string;
   image: string;
   views: number;
-  category: mongoose.Schema.Types.ObjectId;
+  category: mongoose.Schema.Types.ObjectId | ICategory;
   user: mongoose.Schema.Types.ObjectId | IUser;
   createdAt: Date;
 }
