@@ -23,9 +23,6 @@ const CategorySchema = new Schema<ICategory>(
 );
 
 // Ensure the model is registered only once
-const Category: Model<ICategory> = mongoose.model<ICategory>(
-  "Category",
-  CategorySchema
-);
+const Category: Model<ICategory> = mongoose.model("Category", CategorySchema);
 
 export default Category;
