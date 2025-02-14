@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema, Document, Model } from "mongoose";
 import { IPost } from "./Post";
 
 export interface ICategory extends Document {
@@ -22,8 +22,8 @@ const CategorySchema = new Schema<ICategory>(
   }
 );
 
-// Check if the model has already been registered
-const Category =
+// Ensure the model is registered only once
+const Category: Model<ICategory> =
   mongoose.models.Category ||
   mongoose.model<ICategory>("Category", CategorySchema);
 

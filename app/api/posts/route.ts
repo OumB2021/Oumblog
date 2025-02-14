@@ -1,6 +1,7 @@
 import { connectDB } from "@/lib/mongodb";
 import Category from "@/models/Category";
 import { Post } from "@/models/Post";
+import mongoose from "mongoose";
 import { NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -19,7 +20,7 @@ export async function GET(req: NextRequest) {
     if (catSlug) {
       const category = await Category.findOne({ title: catSlug });
       if (category) {
-        query.category = category._id;
+        query.category = (category._id as mongoose.Types.ObjectId).toString();
       } else {
         return new Response("Category not found", { status: 404 });
       }
